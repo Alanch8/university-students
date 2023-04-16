@@ -1,0 +1,28 @@
+###
+GET http://localhost:3000/api/students
+
+###
+POST http://localhost:3000/api/students
+Content-Type: application/json
+
+{
+  "name": "Patrick",
+  "surname": "Bateman",
+  "email": "patrick.bateman@gmail.com",
+  "age": 27,
+  "gender":"male"
+}
+
+###
+GET http://localhost:3000/api/students/643c0bafebdc3637d5682de3
+
+###
+DELETE http://localhost:3000/api/students/643c0666ebdc3637d5682ddf
+
+###
+PUT http://localhost:3000/api/students/643c0bafebdc3637d5682de3
+Content-Type: application/json
+
+{
+  "age": 28
+}
