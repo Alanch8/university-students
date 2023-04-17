@@ -317,6 +317,15 @@ $font-family-text: "Nunito Sans", sans-serif;
 $font-family-details: "Nunito Sans", sans-serif;
 ``` -->
 
+### Time spent
+
+| Day      | Time (h) |
+| -------- | -------- |
+| Friday   | 0h       |
+| Saturday | 2h       |
+| Sunday   | 10h      |
+| Total    | 12h      |
+
 <a name="author"></a>
 
 ## Author 🧑‍💻
