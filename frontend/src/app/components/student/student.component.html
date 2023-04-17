@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h3>Student form</h3>
+        <form #studentForm="ngForm" (ngSubmit)="addStudent(studentForm)">
+
+          <input type="hidden" name="_id" [(ngModel)]="studentService.selectedStudent._id">
+
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Enter name"
+              autocomplete="off"
+              required="true"
+              [(ngModel)]="studentService.selectedStudent.name"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name="surname"
+              placeholder="Enter surname"
+              autocomplete="off"
+              required="true"
+              [(ngModel)]="studentService.selectedStudent.surname"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control"
+              name="age"
+              placeholder="Enter age"
+              autocomplete="off"
+              required="true"
+              [(ngModel)]="studentService.selectedStudent.age"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter email"
+              autocomplete="off"
+              required="true"
+              [(ngModel)]="studentService.selectedStudent.email"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="gender"
+              name="gender"
+              class="form-control"
+              placeholder="Enter gender"
+              autocomplete="off"
+              required="true"
+              [(ngModel)]="studentService.selectedStudent.gender"
+            />
+          </div>
+          <button class="btn btn-primary me-2 mt-2" (click)="resetForm(studentForm)">Clean</button>
+          <button class="btn btn-secondary mt-2">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 pt-4">
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studentService.students">
+          <td>{{ student.name }}</td>
+          <td>{{ student.surname }}</td>
+          <td>{{ student.age }}</td>
+          <td>{{ student.email }}</td>
+          <td>
+            <button class="btn btn-secondary btn-sm me-2" (click)="editStudent(student)">
+              <i class="material-icons">edit</i>
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteStudent(student._id)">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
