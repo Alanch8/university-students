@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IStudent } from '../models/student';
+import { IStudent } from '../models/IStudent';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentService {
 
-  URL_API = 'http://localhost:3000/api/students';
+  URL_API = 'http://localhost:3000/api/students/';
 
   selectedStudent: IStudent = {
     name: '',
@@ -29,10 +29,10 @@ export class StudentService {
   }
 
   putStudent(student: IStudent) {
-    return this.http.put(this.URL_API + `/${student._id}`, student);
+    return this.http.put(this.URL_API + `${student._id}`, student);
   }
   
   deleteStudent(_id: string) {
-    return this.http.delete(this.URL_API + `/${_id}`);
+    return this.http.delete(this.URL_API + `${_id}`);
   }
 }

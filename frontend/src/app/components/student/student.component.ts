@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student.service';
 import { NgForm } from '@angular/forms';
-import { IStudent } from 'src/app/models/student';
+import { IStudent } from 'src/app/models/IStudent';
 
 @Component({
   selector: 'app-student',

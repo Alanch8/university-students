@@ -31,7 +31,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootswatch/dist/sketchy/bootstrap.min.css" 
+              "node_modules/bootswatch/dist/materia/bootstrap.min.css" 
             ],
             "scripts": []
           },

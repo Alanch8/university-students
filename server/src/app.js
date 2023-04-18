@@ -12,5 +12,6 @@ app.use(express.json()); // Middleware para entender los datos que nos envian en
 app.use(express.urlencoded({ extended: false })); // Middleware para entender los datos que nos envian en formato URL.
 
 app.use('/api/students', require('./routes/students.routes')); // Importamos las rutas de los estudiantes.
+app.use('/api/users', require('./routes/login.routes')); // Importamos las rutas de los usuarios.
 
 module.exports = app; // Exportamos el modulo para poder usarlo en otros archivos.
