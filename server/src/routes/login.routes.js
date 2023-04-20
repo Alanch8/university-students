@@ -5,20 +5,29 @@ const User = require('../models/User');
 
 const jwt = require('jsonwebtoken');
 
-router.post('/signin', verifyToken, async (req, res) => {
+router.post('/signup', async (req, res) => {
     const { email, password } = req.body;
+    const newUser = new User({email, password});
+    await newUser.save();
+		const token = await jwt.sign({_id: newUser._id}, process.env.SECRET_JWT_SEED, { expiresIn: 60 });
+    res.status(200).json({token});
+});
 
+router.post('/signin', async (req, res) => {
+    const { email, password } = req.body;
+	console.log(req.body);
     const user = await User.findOne({email});
-    if (!user) return res.status(401).send('The email doen\' exists');
+    if (!user) return res.status(401).send('The email does not\' exists');
     if (user.password !== password) return res.status(401).send('Wrong Password');
 
-		const token = jwt.sign({_id: user._id}, 'secretkey');
+		const token = jwt.sign({_id: user._id}, process.env.SECRET_JWT_SEED);
 
     return res.status(200).json({token});
 });
 
 
 async function verifyToken(req, res, next) {
+	log(req);
 	try {
 		if (!req.headers.authorization) {
 			return res.status(401).send('Unauhtorized Request');

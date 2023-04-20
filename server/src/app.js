@@ -1,6 +1,7 @@
 const express = require('express'); // Importamos express.
 const morgan = require('morgan'); // Importamos morgan.
 const cors = require('cors'); // Importamos cors.
+require ('dotenv').config(); // Importamos dotenv.
 
 const app = express(); // Inicializamos express.
 

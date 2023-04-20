@@ -5,7 +5,7 @@ const studentSchema = new Schema(
     name: { type: String, required: true },
     surname: { type: String, required: true },
     email: { type: String, required: true },
-    age: { type: Number, required: true },
+    age: { type: String, required: false },
     gender: { type: String, required: true },
   },
   {
